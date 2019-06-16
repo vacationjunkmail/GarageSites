@@ -1,0 +1,13 @@
+[Unit]
+Description=uWsgi instance to start relay site
+After=network.target
+
+[Service]
+#User=pi
+#Group=pi
+WorkingDirectory=/var/www/relay
+ExecStart=/usr/bin/uwsgi uwsgi.ini
+
+[Install]
+WantedBy=multi-user.target
+

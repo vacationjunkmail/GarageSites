@@ -1,0 +1,20 @@
+{
+  "name": "starwars",
+  "version": "0.0.0",
+  "description": "Movie App for Star Wars in Node",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Star",
+    "Wars"
+  ],
+  "author": "Me",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "winston": "^3.2.1"
+  }
+}

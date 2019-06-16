@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include partials/head.ejs %>
+        <% include partials/scripts.ejs %>
+    </head>
+    <body>
+        <% include partials/header.ejs %>
+        <div id="hero-image">
+            <h1 id="hero-title"><%= title %></h1>
+        </div>
+        <div id="posters-wrapper" class="content-padding clearfix">
+            <% for (var i = 0; i < movies.length; i++) { %>
+                <div class="poster">
+                    <a href="/starwars/star_wars_episode/<%= movies[i].episode_number %>"><img src ="/star_static/images/<%= movies[i].poster %>" class="img-responsive" /></a>
+                </div>
+
+            <% } %>
+        </div>
+        <% include partials/footer.ejs %>
+    </body>
+</html>
+

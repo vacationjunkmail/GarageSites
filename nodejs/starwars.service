@@ -1,0 +1,13 @@
+[Unit]
+Description=uWsgi instance to start relay site Node App
+After=network.target
+
+[Service]
+#User=pi
+#Group=pi
+WorkingDirectory=/var/www/relay
+ExecStart=/usr/bin/nodejs /var/www/nodejs/app.js
+
+[Install]
+WantedBy=multi-user.target
+
