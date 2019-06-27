@@ -49,7 +49,10 @@ def index():
         print("Error\n**************\n{}\n**************".format(error))
         
     return render_template("index.html", users=data, columns=columns, error = len(error))
-
+@app.route('/lights/')
+def lights():
+    return render_template("lights.html")
+    
 @app.route('/garage_door/', methods = ['POST'])
 def garage_door():
     
@@ -111,6 +114,7 @@ def relay_on():
     GPIO.setup(pin,GPIO.OUT)
     GPIO.output(pin, GPIO.HIGH)
     GPIO.output(pin, GPIO.LOW)
+    
     return jsonify('On','')
 
 @app.route('/relay_off/')
@@ -118,6 +122,7 @@ def relay_off():
     pin = 17
     time.sleep(2)
     error=[]
+
     try:
         GPIO.setup(pin,GPIO.OUT)
         GPIO.output(pin, GPIO.HIGH)
