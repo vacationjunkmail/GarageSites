@@ -49,9 +49,10 @@ def index():
         print("Error\n**************\n{}\n**************".format(error))
         
     return render_template("index.html", users=data, columns=columns, error = len(error))
-@app.route('/lights/')
-def lights():
-    return render_template("lights.html")
+@app.route('/<route_title>/')
+def getroute(route_title):
+    route_title = "{}.html".format(route_title)
+    return render_template(route_title)
     
 @app.route('/garage_door/', methods = ['POST'])
 def garage_door():
