@@ -19,13 +19,13 @@ def before_request():
     #Setting up connection
     g.mysql_db = get_connection()
     #print(request.user_agent)
-    print(request.user_agent.string)
-    print(request.user_agent.platform)
-    print(request.user_agent.browser)
-    print(request.user_agent.version)
-    print('___________________________')
-    print(request.user_agent)
-    print('___________________________')
+    #print(request.user_agent.string)
+    #print(request.user_agent.platform)
+    #print(request.user_agent.browser)
+    #print(request.user_agent.version)
+    #print('___________________________')
+    #print(request.user_agent)
+    #print('___________________________')
 	
 @app.after_request
 def after_request(resp):
@@ -51,8 +51,9 @@ def index():
     return render_template("index.html", users=data, columns=columns, error = len(error))
 @app.route('/<route_title>/')
 def getroute(route_title):
+    route_name = route_title.capitalize()
     route_title = "{}.html".format(route_title)
-    return render_template(route_title)
+    return render_template(route_title,title = route_name)
     
 @app.route('/garage_door/', methods = ['POST'])
 def garage_door():
