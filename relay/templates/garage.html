@@ -33,27 +33,40 @@
 	<link rel="icon" type="image/png" href="/static/Icons8-Windows-8-Household-Garage.ico">
 	<!-- http://www.iconarchive.com/search?q=garage -->
 	<link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+	<script src="/static/js/3.3.1_jquery.min.js"></script>
+	<script src="/static/js/{{ title }}.js"></script>
 </head>
 
 <body>
    <!-- 
    <a href="https://www.freepik.com/free-photos-vectors/background">Background vector created by rawpixel.com - www.freepik.com</a>
    -->
-   <table class="table table-bordered">
-      <tr>
-	 <td colspan="2" class="text-center">
-	    <h1>Open {{ title }} Door</h1>
-	 </td>
-      </tr>
-      <tr>
-	 <td><h2>Mom</h2></td>
-	 <td><h2>Dad</h2></td>
-      </tr>
-      <tr>
-	 <td><img src="/static/images/garage_empty.png" ></td>
-	 <td><img src="/static/images/garage_clipart_empty_garage.png" ></td>
-      </tr>
-   </table>
+   <div class="container">
+      <div id="message"></div>
+      <table class="table table-bordered">
+	 <tr>
+	    <td colspan="2" class="text-center">
+	       <h1>Open {{ title }} Door</h1>
+	    </td>
+	 </tr>
+	 <tr>
+	    <td><h2>Mom</h2></td>
+	    <td><h2>Dad</h2></td>
+	 </tr>      
+	 <tr id="garage_form_row">
+	    <td colspan="3"><br />
+	       <form name="garage_form" id="garage_form">
+		  Password: <input type="password" name="pwd" id="pwd" />
+		  <button type="button" class="btn btn-info btn-sm" name="sub_gar_btn" id="sub_gar_btn">Submit</button>
+		  <input type = "hidden" name="which_door" id="which_door" />
+	       </form>
+	    </td>
+	 </tr>      
+	 <tr>
+	    <td><a href="" id="left_door"><img src="/static/images/close_garage.png" id="left_door_image" ></a></td>
+	    <td><a href="" id="right_door"><img src="/static/images/garage_clipart_empty_garage.png" id="right_door_image" ></a></td>
+	 </tr>
+      </table>
+   </div>
 </body>
-
 </html>
