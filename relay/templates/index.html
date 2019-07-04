@@ -30,99 +30,25 @@
       <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
       <script src="/static/js/3.3.1_jquery.min.js"></script>
       <script src="/static/js/form.js"></script>
-      <link rel="icon" type="image/png" href="/static/favicon.ico">
+      <!--<link rel="icon" type="image/png" href="/static/favicon.ico">-->
+      <link rel="icon" type="image/png" href="/static/smart-home.png">
+      <!--<div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"                 title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"                 title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>-->
    </head>
 
    <body>
       <div class="container">
          <h2>Control</h2>
-         <div id="message"></div>
          <table class="table table-striped table-bordered">
             <tr>
                <th colspan="2">Controls</th>
             </tr>
-            <tr><td>Lamp</td>
-               <td>
-                  <table>
-                     <tr>
-                        <td>
-                           <button type="button" class="btn btn-success btn_on btn-xlg" id="on_btn">Turn on Lamp</button>
-                        </td>
-                        <td>&nbsp;</td>
-                        <td>
-                           <button type="button" class="btn btn-danger btn_off btn-xlg" id="off_btn">Turn off Lamp</button>
-                        </td>
-                     </tr>
-                  </table>
-               </td>
-            </tr>
-            <tr><td>Garage</td>
-               <td>
-                  <table>
-                     <tr>
-                        <td>
-                           <button type="button" class="btn btn-success btn_on btn-xlg" id="left_door">Left Garage Door</button>
-                        </td>
-                        <td>&nbsp;</td>
-                        <td>
-                           <button type="button" class="btn btn-info btn_on btn-xlg" id="right_door">Right Garage Door</button>
-                        </td>
-                     </tr>
-                     <tr id="garage_form_row"><td colspan="3"><br />
-                        <form name="garage_form" id="garage_form">
-                           Password: <input type="password" name="pwd" id="pwd" />
-                           <button type="button" class="btn btn-info btn-sm" name="sub_gar_btn" id="sub_gar_btn">Submit</button>
-                           <input type = "hidden" name="which_door" id="which_door" />
-                        </form>
-                     </td></tr>
-                  </table>
-               </td>
+            <tr>
+            <tr>
+               <td><a href="/lights/">Lights</a></td>
             </tr>
             <tr>
-               <td>Photo</td>
-               <td>
-                  <table>
-                     <tr>
-                        <td>
-                           <button type="button" class="btn btn-success btn_on btn-xlg" id="camera">Take Photo</button>
-                        </td>
-                     </tr>
-                  </table>
-               </td>
+               <td><a href="/garage/">Garage</a></td>
             </tr>
-            <tr>
-               <td>
-                  Forgot Password
-               </td>
-               <td>
-                  <button type="button" class="btn btn-success btn_on btn-xlg" id="forgot">Forgot Password</button>
-               </td>
-            </tr>
-         </table>
-         <div id="showimage"></div>
-         <table class="table table-striped table-bordered" id="usertable">
-            {% if error %}
-               <tr>
-                  <td class="alert alert-danger">
-                     Error is discipline through which we advance. ~William Ellery Channing<br />
-                     Contact the Programmer to fix the error.
-                  </td>
-               </tr>
-            {% endif %}
-            <tr>
-               {% for col in columns %}
-                  <td id="{{ col }}">{{ col[0]|upper}}{{col[1:] }}</td>
-               {% endfor %}
-            </tr>
-            {% for data in users%}
-               <tr>
-                  {% for col in columns %}
-                     <td id = "{{data['id'] | safe }}_{{ col | safe}}">
-                        <a href="forgot/{{ data[col] }}">{{ data[col] }}</a>
-                     </td>
-                  {% endfor %}
-               </tr>
-            {% endfor %}
          </table>
       </div>
    </body>  

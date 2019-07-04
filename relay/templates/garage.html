@@ -48,6 +48,7 @@
 	 <tr>
 	    <td colspan="2" class="text-center">
 	       <h1>Open {{ title }} Door</h1>
+	       <h3><a href="/">Automation Home</a></h3>
 	    </td>
 	 </tr>
 	 <tr>
@@ -77,21 +78,19 @@
 	 </tr>
 	 <tbody>
 	    <tr>
-	       <td colspan="2" id="showimage">
-		  <!--<div id="showimage"></div>__
-	       </td>
+	       <td colspan="2" id="showimage"> </td>
 	    </tr>
 	 </tbody>
 	 <tbody id ="usertable">
             <tr>
                {% for col in columns %}
-                  <td id="{{ col }}">{{ col[0]|upper}}{{col[1:] }}</td>
+                  <td id="{{ col }}" colspan="2"><h2>{{ col[0]|upper}}{{col[1:] }}</h2></td>
                {% endfor %}
             </tr>
             {% for data in users%}
                <tr>
                   {% for col in columns %}
-                     <td id = "{{data['id'] | safe }}_{{ col | safe}}">
+                     <td id = "{{data['id'] | safe }}_{{ col | safe}}" colspan="2">
                         <a href="/forgot/{{ data[col] }}">{{ data[col] }}</a>
                      </td>
                   {% endfor %}
