@@ -2,6 +2,7 @@
 $(function() 
 {
 	$('#garage_form_row').hide();
+	$('#usertable').hide();
 	
 	$('#left_door,#right_door').on("click", function(event) 
     {
@@ -39,12 +40,18 @@ $(function()
                 else
                 {
                     successClass();
-                    $("#"+d+"_image").attr("src","/static/images/open_garage.png");
+                    var image_state = $("#"+d+"_image").attr("src");
+                    var image_regex = /close_/g;
+                    if(image_state.match(image_regex))
+                    {
+						$("#"+d+"_image").attr("src","/static/images/open_garage.png");
+					}
+					else
+					{
+						$("#"+d+"_image").attr("src","/static/images/close_garage.png");
+					}					
                 }
-                $("#message").html(result.msg).fadeIn('fast').delay(5000).fadeOut('fast');
-                //$("#"+d+"_image").attr("src","/static/images/close_garage.png");
-                
-                //console.log(result.error)
+                $("#message").html(result.msg).fadeIn('fast').delay(5000).fadeOut('fast');               
             },
             error: function(error)
             {
@@ -55,10 +62,17 @@ $(function()
         
         $('#which_door').val("");
         $('#pwd').val("");
-        $('#garage_form_row').hide();        
-        
-        
+        $('#garage_form_row').hide();                
 	});	
+	
+	
+	$("#forgot").click(function(event){
+		//$("p").toggle();
+		event.preventDefault();
+		$('#usertable').toggle();
+	});
+	
+	
 });
 
 

@@ -53,7 +53,18 @@ def index():
 def getroute(route_title):
     route_name = route_title.capitalize()
     route_title = "{}.html".format(route_title)
-    return render_template(route_title,title = route_name)
+    
+    columns,error,data = [],[],[]
+    
+    if route_name.lower() == 'garage':
+        query = '''select username from automation_db.users_db;'''
+        select_user = g.mysql_db.select_query(query)
+
+        data = select_user[1]
+        columns = select_user[0]
+        error = select_user[2]
+    
+    return render_template(route_title,title = route_name,users=data, columns=columns, error = len(error))
     
 @app.route('/garage_door/', methods = ['POST'])
 def garage_door():
@@ -195,6 +206,7 @@ def camera():
 @app.route('/forgot/',defaults={'username': 'all'})
 @app.route('/forgot/<string:username>/')
 def findpwd(username):
+    referrer_url = request.headers.get("Referer")
     
     columns,error,data = [],[],[]
     email_to = ''
@@ -227,7 +239,8 @@ def findpwd(username):
         _gmail.send_pwd(email_to,email_message)
         print(_gmail.close_gmail())
                     
-        link = '''<a href="../../">Return</a>'''
+        #link = '''<a href="../../">Return</a>'''
+        link = "<a href='{}'>Return</a>".format(referrer_url)
         msg = "Password sent to email on file. {}".format(link)
     except Exception as e:
         msg = "Error {} call the web developer".format(username)

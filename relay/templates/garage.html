@@ -41,6 +41,7 @@
    <!-- 
    <a href="https://www.freepik.com/free-photos-vectors/background">Background vector created by rawpixel.com - www.freepik.com</a>
    -->
+   <br />
    <div class="container">
       <div id="message"></div>
       <table class="table table-bordered">
@@ -64,9 +65,35 @@
 	 </tr>      
 	 <tr>
 	    <td><a href="" id="left_door"><img src="/static/images/close_garage.png" id="left_door_image" ></a></td>
-	    <td><a href="" id="right_door"><img src="/static/images/garage_clipart_empty_garage.png" id="right_door_image" ></a></td>
+	    <td><a href="" id="right_door"><img src="/static/images/close_garage.png" id="right_door_image" ></a></td>
 	 </tr>
+	 <tr>
+	    <td colspan="2">
+	       <a href="" class="btn btn-success btn_on btn-xlg" id="forgot"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> Forgot Password</a>
+	    </td>
+	 </tr>
+	 <tbody id ="usertable">
+            <tr>
+               {% for col in columns %}
+                  <td id="{{ col }}">{{ col[0]|upper}}{{col[1:] }}</td>
+               {% endfor %}
+            </tr>
+            {% for data in users%}
+               <tr>
+                  {% for col in columns %}
+                     <td id = "{{data['id'] | safe }}_{{ col | safe}}">
+                        <a href="/forgot/{{ data[col] }}">{{ data[col] }}</a>
+                     </td>
+                  {% endfor %}
+               </tr>
+            {% endfor %}	 
+	 </tbody>
+	 <!--<tr id="usertable">
+	    <td>user table</td>
+	 </tr>-->
       </table>
    </div>
+   <!-- https://getbootstrap.com/docs/3.3/components/#glyphicons-how-to-use -->
+   <!-- https://www.glyphicons.com -->
 </body>
 </html>
