@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #read -p "Add comments now " comments;
-#sudo git status;
+sudo git status;
 sudo git add *;
 read -p "Add comments now " comments;
 
