@@ -2,7 +2,8 @@
 $(function() 
 {
 	$('#garage_form_row').hide();
-	$('#usertable').hide();
+	//$('#usertable').hide();
+	removeClass();
 	
 	$('#left_door,#right_door').on("click", function(event) 
     {
@@ -65,27 +66,43 @@ $(function()
         $('#garage_form_row').hide();                
 	});	
 	
-	
 	$("#forgot").click(function(event){
 		//$("p").toggle();
 		event.preventDefault();
 		$('#usertable').toggle();
 	});
 	
-	
+    $('#camera').on("click", function (event) 
+    {
+		event.preventDefault();
+        removeClass();
+        $.ajax(
+        {
+            url: "/camera/", success: function(result)
+            {
+                successClass();
+                $("#message").html(result.msg).fadeIn('fast').delay(6000).fadeOut('fast');
+                var img = '<img src="/static/'+result.pic+'">';
+                $('#showimage').append(img);
+                $('#showimage').fadeIn('fast').delay(5000).fadeOut('fast');
+            }
+        });                
+    });	
+	function successClass()
+	{
+		$("#message").addClass("alert alert-success");
+	}
+
+	function removeClass()
+	{
+		$("#message").removeClass();
+		$('#showimage').empty();
+		$('#showimage').hide();
+		$('#garage_form_row').hide();
+		$('#usertable').hide();
+	}
+
 });
 
 
-function successClass()
-{
-	$("#message").addClass("alert alert-success");
-}
 
-function removeClass()
-{
-	$("#message").removeClass();
-	$('#showimage').empty();
-	$('#showimage').hide();
-	$('#garage_form_row').hide();
-	$('#usertable').hide();
-}

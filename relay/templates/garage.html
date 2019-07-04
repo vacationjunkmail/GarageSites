@@ -68,10 +68,20 @@
 	    <td><a href="" id="right_door"><img src="/static/images/close_garage.png" id="right_door_image" ></a></td>
 	 </tr>
 	 <tr>
-	    <td colspan="2">
+	    <td>
 	       <a href="" class="btn btn-success btn_on btn-xlg" id="forgot"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> Forgot Password</a>
 	    </td>
+	    <td>
+	       <a href="" class="btn btn-success btn_on btn-xlg" id="camera"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> Take Photo</a>
+	    </td>	    
 	 </tr>
+	 <tbody>
+	    <tr>
+	       <td colspan="2" id="showimage">
+		  <!--<div id="showimage"></div>__
+	       </td>
+	    </tr>
+	 </tbody>
 	 <tbody id ="usertable">
             <tr>
                {% for col in columns %}
@@ -88,9 +98,6 @@
                </tr>
             {% endfor %}	 
 	 </tbody>
-	 <!--<tr id="usertable">
-	    <td>user table</td>
-	 </tr>-->
       </table>
    </div>
    <!-- https://getbootstrap.com/docs/3.3/components/#glyphicons-how-to-use -->
