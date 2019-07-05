@@ -74,17 +74,21 @@ $(function()
 	
     $('#camera').on("click", function (event) 
     {
+		$('#camera').hide();
 		event.preventDefault();
         removeClass();
+        $("#message").html('Taking Photo').addClass("alert alert-info");
         $.ajax(
         {
             url: "/camera/", success: function(result)
             {
+				removeClass();
                 successClass();
                 $("#message").html(result.msg).fadeIn('fast').delay(6000).fadeOut('fast');
                 var img = '<img src="/static/'+result.pic+'">';
                 $('#showimage').append(img);
                 $('#showimage').fadeIn('fast').delay(5000).fadeOut('fast');
+                $('#camera').show();
             }
         });                
     });	
