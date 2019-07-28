@@ -87,7 +87,7 @@ $(function()
                 $("#message").html(result.msg).fadeIn('fast').delay(6000).fadeOut('fast');
                 var img = '<img src="/static/'+result.pic+'">';
                 $('#showimage').append(img);
-                $('#showimage').fadeIn('fast').delay(5000).fadeOut('fast');
+                $('#showimage').fadeIn('fast').delay(8000).fadeOut('fast');
                 $('#camera').show();
             }
         });                
