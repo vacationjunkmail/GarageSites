@@ -133,7 +133,7 @@ def relay_on():
 @app.route('/relay_off/')
 def relay_off():
     pin = 17
-    time.sleep(2)
+    #time.sleep(2)
     error=[]
 
     try:
